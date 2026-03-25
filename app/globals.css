@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+}
+
+:root {
+  --bg: #061612;
+  --accent: #E5D5B0; /* Champagne Gold */
+}
+
+@layer base {
+  body {
+    @apply bg-[#061612] text-white;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white/80 to-white/50;
+  }
+
+  .mask-fade-bottom {
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
